@@ -9,6 +9,8 @@ const PlaceholderImage = require('./assets/images/nightsky.jpeg');
 
 const Welcome = () => {
 
+    const navigation = useNavigation();
+
     const home = () => {
         navigation.navigate("Home");
     }
@@ -16,8 +18,6 @@ const Welcome = () => {
     const login = () => {
         navigation.navigate("Login");
     }
-
-    const navigation = useNavigation();
 
     return (
         <View style={styles.container}>
