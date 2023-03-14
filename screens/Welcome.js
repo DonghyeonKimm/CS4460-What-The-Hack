@@ -5,14 +5,14 @@ import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 
-const PlaceholderImage = require('./assets/images/nightsky.jpeg');
+const PlaceholderImage = require('C:/Users/donye/Downloads/MUC/CS4460-What-The-Hack/assets/images/nightsky.jpeg');
 
 const Welcome = () => {
 
     const navigation = useNavigation();
 
     const home = () => {
-        navigation.navigate("Home");
+        navigation.navigate("Direction");
     }
 
     const login = () => {

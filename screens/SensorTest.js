@@ -2,25 +2,31 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import {Gyroscope, Barometer, Magnetometer, Accelerometer} from 'expo-sensors'
 
-const SensorTest = () => {
+const SensorTest = ({route}) => {
     //ACCELEROMETER
-    const [ {x, y, z}, setData] = useState({x, y, z})
+    const [ {x, y, z}, setData] = useState({x, y, z});
 
     //BAROMETER
-    const [ {pressure, relativeAltitude}, setData2] = useState({pressure, relativeAltitude})
+    const [ {pressure, relativeAltitude}, setData2] = useState({pressure, relativeAltitude});
 
     //GYROSCOPE
-    const [gX, setGX] = useState()
-    const [gY, setGY] = useState()
-    const [gZ, setGZ] = useState()
+    const [gX, setGX] = useState();
+    const [gY, setGY] = useState();
+    const [gZ, setGZ] = useState();
 
     //MAGNETOMETER
-    const [mX, setMX] = useState()
-    const [mY, setMY] = useState()
-    const [mZ, setMZ] = useState()
+    const [mX, setMX] = useState();
+    const [mY, setMY] = useState();
+    const [mZ, setMZ] = useState();
 
 
-    
+    const longitude = route.params.longitude;
+    const latitude = route.params.latitude;
+
+    let heading = 0;
+    let tNorth = 0;
+    let ready = false;
+
     useEffect(() => {
         const subscription1 = Accelerometer.addListener(({x, y, z}) => {
             setData({x, y, z});
@@ -47,6 +53,29 @@ const SensorTest = () => {
             subscription4.remove();
         }
     }, [])
+
+    useEffect(() => {
+        console.log(Math.atan2(mY, mX) * (180 / Math.PI))
+    })
+
+    useEffect(() => {
+        fetch('https://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination' +
+            '?lat1=' + latitude + '&lon1=' + longitude + '&key=zNEw7&resultFormat=csv')
+        .then(response => response.text()).then(text => {
+            let declination = parseFloat(text.replace(/^#.*$/gm, '').trim().split(',')[4]);
+            // Compensate for the magnetic declination to get the geographic north.
+            console.log(declination);
+            ready = true;
+        });
+    }, [])
+
+    useEffect(() => {
+        // if (!ready) {
+        //     console.log("Heading: " + heading + " True North: " + tNorth);
+        // }   
+    })
+
+    
 
 
     return (
