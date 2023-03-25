@@ -25,9 +25,13 @@ const styles = StyleSheet.create({
         marginTop: 70,
         alignItems: 'center'
     },
+    prompt: {
+        width: 350
+    },  
     promptText: {
         color: 'white',
         fontSize: 20,
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: 20
     }
 })

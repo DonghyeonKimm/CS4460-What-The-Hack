@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import {Gyroscope, Barometer, Magnetometer, Accelerometer} from 'expo-sensors'
+import {Gyroscope, Barometer, Magnetometer, Accelerometer, DeviceMotion} from 'expo-sensors'
 
 const SensorTest = ({route}) => {
     //ACCELEROMETER
@@ -19,9 +19,9 @@ const SensorTest = ({route}) => {
     const [mY, setMY] = useState();
     const [mZ, setMZ] = useState();
 
-
-    const longitude = route.params.longitude;
-    const latitude = route.params.latitude;
+    const [alpha, setAlpha] = useState();
+    const [beta, setBeta] = useState();
+    const [gamma, setGamma] = useState();
 
     let heading = 0;
     let tNorth = 0;
@@ -30,6 +30,9 @@ const SensorTest = ({route}) => {
     useEffect(() => {
         const subscription1 = Accelerometer.addListener(({x, y, z}) => {
             setData({x, y, z});
+
+            // setPitch(Math.atan2(x, z) * 180 / Math.PI);
+            // setRoll(Math.atan2(y, z) * 180 / Math.PI);
         });
 
         const subscription2 = Gyroscope.addListener(({x, y, z}) => {
@@ -39,6 +42,12 @@ const SensorTest = ({route}) => {
         });
 
         const subscription3 = Barometer.addListener(setData2);
+
+        DeviceMotion.addListener((deviveMotion) => {
+            setAlpha(deviveMotion.rotation.alpha);
+            setBeta(deviveMotion.rotation.beta);
+            setGamma(deviveMotion.rotation.gamma);
+        })
 
         const subscription4 = Magnetometer.addListener(({x, y, z}) => {
             setMX(x);
@@ -51,23 +60,13 @@ const SensorTest = ({route}) => {
             subscription2.remove();
             subscription3.remove();
             subscription4.remove();
+            DeviceMotion.removeAllListeners();
         }
     }, [])
 
     useEffect(() => {
-        console.log(Math.atan2(mY, mX) * (180 / Math.PI))
+        //console.log(Math.atan2(mY, mX) * (180 / Math.PI))
     })
-
-    useEffect(() => {
-        fetch('https://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination' +
-            '?lat1=' + latitude + '&lon1=' + longitude + '&key=zNEw7&resultFormat=csv')
-        .then(response => response.text()).then(text => {
-            let declination = parseFloat(text.replace(/^#.*$/gm, '').trim().split(',')[4]);
-            // Compensate for the magnetic declination to get the geographic north.
-            console.log(declination);
-            ready = true;
-        });
-    }, [])
 
     useEffect(() => {
         // if (!ready) {
@@ -102,6 +101,12 @@ const SensorTest = ({route}) => {
                 <Text>Barometer</Text>
                 <Text>Pressure: {pressure}</Text>
                 <Text>Relative Altitude: {relativeAltitude}</Text>
+            </View>
+            <View style={styles.data}>
+                <Text>Orientation</Text>
+                <Text>Alpha "North": {alpha}</Text>
+                <Text>Beta "Up-Down": {beta}</Text>
+                <Text>Gamma "Left-Right": {gamma}</Text>
             </View>
         </View>
     )

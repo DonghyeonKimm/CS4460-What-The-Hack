@@ -8,6 +8,7 @@ import Login from './screens/Login';
 import SensorTest from './screens/SensorTest';
 import Test from './screens/Test';
 import Direction from './screens/Direction';
+import NorthStar from './screens/NorthStar';
 
 const Stack = createStackNavigator();
 
@@ -27,11 +28,12 @@ export default function App() {
           headerShown: false
         }
       }>
+        <Stack.Screen name="NorthStar" component={NorthStar} />
+        <Stack.Screen name="SensorTest" component={SensorTest} />
         {/* <Stack.Screen name="Test" component={Test} /> */}
         <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="SensorTest" component={SensorTest} />
         <Stack.Screen name="Direction" component={Direction} />
       </Stack.Navigator>
     </NavigationContainer>

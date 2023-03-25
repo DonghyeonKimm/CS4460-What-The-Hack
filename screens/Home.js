@@ -9,21 +9,6 @@ const Home = () => {
   const [location, setLocation] = useState(null);
   const navigation = useNavigation();
 
-  useEffect(() => {
-    (async () => {
-      
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') {
-        alert('Permission to access location was denied');
-        return;
-      }
-
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
-    })();
-  }, []);
-
-
 
   let fLocation = "waiting";
   if (location) {
@@ -31,18 +16,11 @@ const Home = () => {
   }
 
   const data = () => {
-    navigation.navigate("SensorTest", {
-      longitude: fLocation.coords.longitude,
-      latitude: fLocation.coords.latitude
-    });
+    navigation.navigate("SensorTest");
   } 
 
   return (
     <View style={styles.container}>
-      {location && <View style={styles.location}>
-        <Text>Longitude: {fLocation.coords.longitude}</Text>
-        <Text>Latitude: {fLocation.coords.latitude}</Text>
-      </View>}
       <TouchableOpacity style={styles.button} onPress={data}>
         <Text>Sensor Data</Text>
       </TouchableOpacity>

@@ -28,9 +28,21 @@
     },
     "plugins": [
       [
-        "expo-location",
+        "expo-sensors",
         {
-          "locationAlwaysAndWhenInUsePermission": "Allow StarFinder to use your location."
+          "motionPermission": "Allow $(PRODUCT_NAME) to access your device motion."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera."
+        }
+      ],
+      [ 
+        "expo-media-library", 
+        {
+          "savePhotosPermisson": "Allow to save photos"
         }
       ]
     ]
