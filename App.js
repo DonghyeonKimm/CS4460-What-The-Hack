@@ -9,6 +9,7 @@ import SensorTest from './screens/SensorTest';
 import Test from './screens/Test';
 import Direction from './screens/Direction';
 import NorthStar from './screens/NorthStar';
+import Navigation from './screens/Navigation';
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,7 @@ export default function App() {
           headerShown: false
         }
       }>
+        <Stack.Screen name="Navigation" component={Navigation} />
         <Stack.Screen name="NorthStar" component={NorthStar} />
         <Stack.Screen name="SensorTest" component={SensorTest} />
         {/* <Stack.Screen name="Test" component={Test} /> */}

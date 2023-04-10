@@ -22,7 +22,8 @@ const NorthStar = () => {
     }, [])
 
     const check = () => {
-        if ((alpha <= -3 && alpha >= -3.12) && (beta <= 1.1 && beta >= 0.80)) {
+        // (alpha <= -3 && alpha >= -3.12) && (beta <= 1.1 && beta >= 0.80)
+        if (getHeading() == "North") {
             setFound(true);
         } else {
             setFound(false);
@@ -65,6 +66,26 @@ const NorthStar = () => {
         return false;
     }
 
+    const getHeading = () => {
+        if (alpha <= 0.36 && alpha > -0.36) {
+            return "N"
+        } else if (alpha <= -0.36 && alpha > -1.17) {
+            return "NE"
+        } else if (alpha <= -1.17 && alpha > -1.95) {
+            return "E"
+        } else if (alpha <= -1.95 && alpha > -2.72) {
+            return "SE"
+        } else if ((alpha <= -2.72 && alpha > -3.15) || (alpha <= 3.15 && alpha > 2.70)) {
+            return "S"
+        } else if (alpha <= 2.70 && alpha > 1.93) {
+            return "SW"
+        } else if (alpha <= 1.93 && alpha > 1.2) {
+            return "W"
+        } else if (alpha <= 1.2 && alpha > 0.36) {
+            return "NW";
+        }
+    }
+
     useEffect(() => {
         DeviceMotion.addListener((deviceMotion) => {
             setAlpha(deviceMotion.rotation.alpha);
@@ -83,6 +104,7 @@ const NorthStar = () => {
                 setFoundN(true);
             }
         }
+        getHeading();
         check();
     })
 
@@ -105,7 +127,7 @@ const NorthStar = () => {
             <AntDesign name="caretdown" color="black" style={navigateDown() ? styles.iconA : styles.iconD}/>
         </View>
         <TouchableOpacity style={found ? styles.buttonFound : styles.button} disabled={!found}>
-            <Text>Found It</Text>
+            <Text>Found It: {getHeading()}</Text>
         </TouchableOpacity>
     </View>
   )
