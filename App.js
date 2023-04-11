@@ -3,11 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack';
 import Welcome from './screens/Welcome';
-import Home from './screens/Home';
-import Login from './screens/Login';
 import SensorTest from './screens/SensorTest';
 import Test from './screens/Test';
-import Direction from './screens/Direction';
 import NorthStar from './screens/NorthStar';
 import Navigation from './screens/Navigation';
 
@@ -29,14 +26,11 @@ export default function App() {
           headerShown: false
         }
       }>
+        <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="Navigation" component={Navigation} />
         <Stack.Screen name="NorthStar" component={NorthStar} />
         <Stack.Screen name="SensorTest" component={SensorTest} />
         {/* <Stack.Screen name="Test" component={Test} /> */}
-        <Stack.Screen name="Welcome" component={Welcome} />
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Direction" component={Direction} />
       </Stack.Navigator>
     </NavigationContainer>
   );

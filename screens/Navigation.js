@@ -3,6 +3,7 @@ import { DeviceMotion } from 'expo-sensors'
 import React, { useState, useEffect} from 'react';
 import places from '../util/direction';
 import DropDownPicker from 'react-native-dropdown-picker';
+import { useNavigation } from '@react-navigation/native';
 
 const Navigation = () => {
   const [alpha, setAlpha] = useState();
@@ -23,6 +24,12 @@ const Navigation = () => {
   const [started, setStarted] = useState(false);
   const [direction, setDirection] = useState();
   const [heading, setHeading] = useState();
+
+  const navigation = useNavigation();
+
+  const home = () => {
+    navigation.navigate("Welcome");
+  }
 
 
   useEffect(() => {
@@ -84,7 +91,6 @@ const Navigation = () => {
     return styles.wrong;
   }
 
-
   return (
     <View style={styles.container}>
       <View style={styles.selector}>
@@ -118,6 +124,9 @@ const Navigation = () => {
       {started && <TouchableOpacity style={styles.button} onPress={() => {setStarted(false)}}>
         <Text>End</Text>
       </TouchableOpacity> }
+      <TouchableOpacity style={styles.button} onPress={home}>
+        <Text>Home</Text>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -142,7 +151,8 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 15
+    borderRadius: 15,
+    marginBottom: 30
   }, 
   right: {
     fontSize: 50,

@@ -11,12 +11,12 @@ const Welcome = () => {
 
     const navigation = useNavigation();
 
-    const home = () => {
-        navigation.navigate("Direction");
+    const northStar = () => {
+        navigation.navigate("NorthStar");
     }
 
-    const login = () => {
-        navigation.navigate("Login");
+    const testFeature = () => {
+        navigation.navigate("Navigation");
     }
 
     return (
@@ -25,12 +25,12 @@ const Welcome = () => {
             <Image source={PlaceholderImage} style={styles.image} />
         </View>
         <View style={styles.footerContainer}>
-            <TouchableOpacity style={styles.startButton} onPress={home}>
+            <TouchableOpacity style={styles.startButton} onPress={northStar}>
                 <MaterialCommunityIcons name="star-shooting-outline" size={24} color="black" />
-                <Text>Get Started</Text>
+                <Text>Find North Star</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.loginButton} onPress={login}>
-                <Text style={styles.login}>Log In</Text>
+            <TouchableOpacity style={styles.loginButton} onPress={testFeature}>
+                <Text style={styles.login}>Test Feature - Navigation</Text>
             </TouchableOpacity>
         </View>
         <StatusBar style="auto" />

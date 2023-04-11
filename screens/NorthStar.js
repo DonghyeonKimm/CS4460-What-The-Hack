@@ -3,6 +3,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { Camera, CameraType } from 'expo-camera';
 import {Gyroscope, Barometer, Magnetometer, Accelerometer, DeviceMotion} from 'expo-sensors'
 import React, { useState, useEffect} from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const NorthStar = () => {
     const [hasCameraPermission, setHasCameraPermission] = useState(); 
@@ -14,6 +15,12 @@ const NorthStar = () => {
     
     let north = false;
 
+    const navigation = useNavigation();
+
+    const foundIt = () => {
+        navigation.navigate("Welcome");
+    }
+
     useEffect(() => {
         (async () => {
             const cameraPermission = await Camera.requestCameraPermissionsAsync();
@@ -22,8 +29,7 @@ const NorthStar = () => {
     }, [])
 
     const check = () => {
-        // (alpha <= -3 && alpha >= -3.12) && (beta <= 1.1 && beta >= 0.80)
-        if (getHeading() == "North") {
+        if ((alpha <= -3 && alpha >= -3.12) && (beta <= 1.1 && beta >= 0.80)) {
             setFound(true);
         } else {
             setFound(false);
@@ -126,10 +132,11 @@ const NorthStar = () => {
             </View>
             <AntDesign name="caretdown" color="black" style={navigateDown() ? styles.iconA : styles.iconD}/>
         </View>
-        <TouchableOpacity style={found ? styles.buttonFound : styles.button} disabled={!found}>
-            <Text>Found It: {getHeading()}</Text>
+        <TouchableOpacity style={found ? styles.buttonFound : styles.button} disabled={!found} onPress={foundIt}>
+            <Text>Found It</Text>
         </TouchableOpacity>
     </View>
+    
   )
 }
 
@@ -205,7 +212,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 14,
-        alignSelf: 'center'
+        alignSelf: 'center',
+        marginBottom: 10
     },
     button: {
         backgroundColor: 'white',
@@ -217,6 +225,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 14,
         alignSelf: 'center',
-        opacity: 0.2
+        opacity: 0.2,
+        marginBottom: 20,
+        marginBottom: 10
     }
 })
