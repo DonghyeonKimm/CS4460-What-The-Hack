@@ -29,9 +29,9 @@ const Welcome = () => {
                 <MaterialCommunityIcons name="star-shooting-outline" size={24} color="black" />
                 <Text>Find North Star</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.loginButton} onPress={testFeature}>
+            {/* <TouchableOpacity style={styles.loginButton} onPress={testFeature}>
                 <Text style={styles.login}>Test Feature - Navigation</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </View>
         <StatusBar style="auto" />
         </View>

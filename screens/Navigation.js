@@ -45,6 +45,10 @@ const Navigation = () => {
   }, [])
 
   const startNavigation = () => {
+    if (!value || !value2) {
+      alert("Must select starting point and destination");
+      return;
+    }
     setStarted(true);
 
     let start;
@@ -138,12 +142,13 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 50,
     alignSelf: "center",
-    // justifyContent: "center",
+    justifyContent: "center",
     alignContent: "center",
     alignItems: "center"
   },
   selector: {
-    marginBottom: 120
+    marginBottom: 120,
+    maxWidth: 350
   },
   button: {
     backgroundColor: 'white',

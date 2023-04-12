@@ -114,6 +114,10 @@ const NorthStar = () => {
         check();
     })
 
+    const startNavigation = () => {
+        navigation.navigate("Navigation");
+    }
+
   return (
     <View style={styles.container}>
         <View style={styles.data}>
@@ -132,8 +136,8 @@ const NorthStar = () => {
             </View>
             <AntDesign name="caretdown" color="black" style={navigateDown() ? styles.iconA : styles.iconD}/>
         </View>
-        <TouchableOpacity style={found ? styles.buttonFound : styles.button} disabled={!found} onPress={foundIt}>
-            <Text>Found It</Text>
+        <TouchableOpacity style={found ? styles.buttonFound : styles.button} disabled={!found} onPress={startNavigation}>
+            <Text>Start Navigation</Text>
         </TouchableOpacity>
     </View>
     
