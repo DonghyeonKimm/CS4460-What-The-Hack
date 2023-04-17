@@ -5,16 +5,18 @@ import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 
-const PlaceholderImage = require('C:/Users/donye/Downloads/MUC/CS4460-What-The-Hack/assets/images/nightsky.jpeg');
+const PlaceholderImage = require('/Users/donghyeonkim/Documents/GitHub/CS4460-What-The-Hack/assets/images/nightsky.jpeg');
 
 const Welcome = () => {
 
     const navigation = useNavigation();
 
-    const northStar = () => {
-        navigation.navigate("NorthStar");
+    // const northStar = () => {
+    //     navigation.navigate("NorthStar");
+    // }
+    const map = () => {
+        navigation.navigate("map");
     }
-
     const testFeature = () => {
         navigation.navigate("Navigation");
     }
@@ -25,7 +27,7 @@ const Welcome = () => {
             <Image source={PlaceholderImage} style={styles.image} />
         </View>
         <View style={styles.footerContainer}>
-            <TouchableOpacity style={styles.startButton} onPress={northStar}>
+            <TouchableOpacity style={styles.startButton} onPress={map}>
                 <MaterialCommunityIcons name="star-shooting-outline" size={24} color="black" />
                 <Text>Find North Star</Text>
             </TouchableOpacity>
