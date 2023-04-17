@@ -4,8 +4,9 @@ import { Marker } from 'react-native-maps';
 import { StyleSheet, View } from 'react-native';
 import { Text, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import { TouchableOpacity } from 'react-native';
 import * as Location from 'expo-location';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import NorthStar from './NorthStar';
 
 export default function App() {
