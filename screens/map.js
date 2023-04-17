@@ -6,6 +6,7 @@ import { Text, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import * as Location from 'expo-location';
+import NorthStar from './NorthStar';
 
 export default function App() {
     const navigation = useNavigation();
@@ -74,7 +75,7 @@ export default function App() {
     radius = {50}
     />
   </MapView>  
-  <TouchableOpacity style={styles.startButton} onPress={map}>
+  <TouchableOpacity style={styles.startButton} onPress={NorthStar}>
                 <MaterialCommunityIcons name="star-shooting-outline" size={24} color="black" />
                 <Text>Find North Star</Text>
     </TouchableOpacity> 
