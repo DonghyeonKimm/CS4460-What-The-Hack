@@ -75,7 +75,7 @@ export default function App() {
     radius = {50}
     />
   </MapView>  
-  <TouchableOpacity style={styles.startButton} onPress={NorthStar}>
+  <TouchableOpacity style={styles.startButton} onPress={northStar}>
                 <MaterialCommunityIcons name="star-shooting-outline" size={24} color="black" />
                 <Text>Find North Star</Text>
     </TouchableOpacity> 
