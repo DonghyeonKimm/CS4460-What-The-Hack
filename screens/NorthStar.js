@@ -192,8 +192,8 @@ const styles = StyleSheet.create({
     },
     camera: {
         fontSize: 200,
-        paddingHorizontal: 120,
-        paddingVertical: 200,
+        paddingHorizontal: 145,
+        paddingVertical: 260,
         backgroundColor: 'blue'
     },
     data: {
@@ -207,12 +207,12 @@ const styles = StyleSheet.create({
     },
     iconA: {
         opacity: 1,
-        fontSize: 75,
+        fontSize: 55,
         color: 'white'
     },
     iconD: {
         opacity: 0.1,
-         fontSize: 75,
+        fontSize: 55,
         color: 'white'
     },
     found: {
@@ -226,19 +226,19 @@ const styles = StyleSheet.create({
     buttonFound: {
         backgroundColor: 'white',
         width: '40%',
-        height: '5%',
+        height: '7%',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 14,
         alignSelf: 'center',
-        marginBottom: 10
+        marginTop: 50
     },
     button: {
         backgroundColor: 'white',
         width: '40%',
-        height: '5%',
+        height: '7%',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
@@ -246,7 +246,6 @@ const styles = StyleSheet.create({
         borderRadius: 14,
         alignSelf: 'center',
         opacity: 0.2,
-        marginBottom: 20,
-        marginBottom: 10
+        marginTop: 50
     }
 })
