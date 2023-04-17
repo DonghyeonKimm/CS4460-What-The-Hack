@@ -55,8 +55,8 @@ export default function App() {
       >
         <Marker
   coordinate={pin}
-  title = "Test Title"
-  description = "Test Description"
+  title = "Set Location"
+  description = "Current Location"
   pinColor='red'
   draggable = {true}
   onDragStart = {(e) => {
