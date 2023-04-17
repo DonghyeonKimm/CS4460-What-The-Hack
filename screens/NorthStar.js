@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Button, TouchableOpacity,Image } from 'react-native'
 import { AntDesign } from '@expo/vector-icons';
 import { Camera, CameraType } from 'expo-camera';
 import {Gyroscope, Barometer, Magnetometer, Accelerometer, DeviceMotion} from 'expo-sensors'
 import React, { useState, useEffect} from 'react';
 import { useNavigation } from '@react-navigation/native';
+const PlaceholderImage = require('/Users/donghyeonkim/Documents/GitHub/CS4460-What-The-Hack/assets/images/nightsky.jpeg');
 
 const NorthStar = () => {
     const [hasCameraPermission, setHasCameraPermission] = useState(); 
@@ -125,6 +126,9 @@ const NorthStar = () => {
             <Text style={styles.dataText}>Beta "Up-Down": {beta}</Text>
             <Text style={styles.dataText}>Gamma "Left-Right": {gamma}</Text>
         </View> */}
+         <View style={styles.imageContainer}>
+            <Image source={PlaceholderImage} style={styles.image} />
+            </View>
         <View style={styles.inside}>
             <AntDesign name="caretup" style={navigateUp() ? styles.iconA : styles.iconD}/>
             <View style={styles.block}>
@@ -151,6 +155,18 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
         justifyContent: 'center'
+    },
+    imageContainer: {
+        position: 'absolute',
+      top: 0,
+        flex: 1,
+        paddingTop: 0,
+    },
+    image: {
+        top: 50,
+        width: 400,
+        height: 900,
+        borderRadius: 18,
     },
     inside: {
         height: '70%',

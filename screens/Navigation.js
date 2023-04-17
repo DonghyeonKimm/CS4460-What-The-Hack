@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Button, TouchableOpacity,Image } from 'react-native'
 import { DeviceMotion } from 'expo-sensors'
 import React, { useState, useEffect} from 'react';
 import places from '../util/direction';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useNavigation } from '@react-navigation/native';
+const PlaceholderImage = require('/Users/donghyeonkim/Documents/GitHub/CS4460-What-The-Hack/assets/images/nightsky.jpeg');
 
 const Navigation = () => {
   const [alpha, setAlpha] = useState();
@@ -97,6 +98,9 @@ const Navigation = () => {
 
   return (
     <View style={styles.container}>
+                  <View style={styles.imageContainer}>
+            <Image source={PlaceholderImage} style={styles.image} />
+            </View>
       <View style={styles.selector}>
         <DropDownPicker
           open={open}
@@ -146,6 +150,18 @@ const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center"
   },
+  imageContainer: {
+    position: 'absolute',
+  top: 0,
+    flex: 1,
+    paddingTop: 0,
+},
+image: {
+    top: 50,
+    width: 400,
+    height: 900,
+    borderRadius: 18,
+},
   selector: {
     marginBottom: 120,
     maxWidth: 350
