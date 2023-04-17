@@ -18,7 +18,7 @@ const Welcome = () => {
         navigation.navigate("map");
     }
     const testFeature = () => {
-        navigation.navigate("Navigation");
+        navigation.navigate("SensorTest");
     }
 
     return (
@@ -26,17 +26,19 @@ const Welcome = () => {
             <View style={styles.imageContainer}>
                 <Image source={PlaceholderImage} style={styles.image} />
             </View>
-            <View>
-              <Text style={styles.name}>North Star Navigation</Text> 
-            </View>
             <View style={styles.footerContainer}>
-                <TouchableOpacity style={styles.startButton} onPress={map}>
-                    <MaterialCommunityIcons name="star-shooting-outline" size={24} color="black" />
-                    <Text>Find North Star</Text>
-                </TouchableOpacity>
-                {/* <TouchableOpacity style={styles.loginButton} onPress={testFeature}>
-                    <Text style={styles.login}>Test Feature - Navigation</Text>
-                </TouchableOpacity> */}
+                <View style={styles.nameContainer}>
+                    <Text style={styles.name}>North Star Navigation</Text> 
+                </View>
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity style={styles.startButton} onPress={map}>
+                        <MaterialCommunityIcons name="star-shooting-outline" size={24} color="black" />
+                        <Text>Find North Star</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.loginButton} onPress={testFeature}>
+                        <Text style={styles.login}>Test Sensors</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
             <StatusBar style="auto" />
         </View>
@@ -51,11 +53,17 @@ const styles = StyleSheet.create({
         backgroundColor: '#25292e',
         alignItems: 'center',
     },
+    nameContainer: {
+        marginTop: "-75%"
+    },
     name: {
         color: 'white',
-        marginBottom: '70%',
+        marginTop: 0,
         fontSize: 36,
         fontWeight: 'bold',
+    },
+    buttonContainer: {
+        marginTop: "60%"
     },
     imageContainer: {
         flex: 1,
@@ -69,6 +77,8 @@ const styles = StyleSheet.create({
     footerContainer: {
         flex: 1 / 3,
         alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'column'
     },
     startButton: {
         backgroundColor: 'white',

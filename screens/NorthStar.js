@@ -4,7 +4,7 @@ import { Camera, CameraType } from 'expo-camera';
 import {Gyroscope, Barometer, Magnetometer, Accelerometer, DeviceMotion} from 'expo-sensors'
 import React, { useState, useEffect} from 'react';
 import { useNavigation } from '@react-navigation/native';
-const PlaceholderImage = require('/Users/donghyeonkim/Documents/GitHub/CS4460-What-The-Hack/assets/images/nightsky.jpeg');
+const PlaceholderImage = require('C:/Users/donye/Downloads/MUC/CS4460-What-The-Hack/assets/images/nightsky.jpeg');
 
 const NorthStar = () => {
     const [hasCameraPermission, setHasCameraPermission] = useState(); 

@@ -4,7 +4,7 @@ import React, { useState, useEffect} from 'react';
 import places from '../util/direction';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useNavigation } from '@react-navigation/native';
-const PlaceholderImage = require('/Users/donghyeonkim/Documents/GitHub/CS4460-What-The-Hack/assets/images/nightsky.jpeg');
+const PlaceholderImage = require('C:/Users/donye/Downloads/MUC/CS4460-What-The-Hack/assets/images/nightsky.jpeg');
 
 const Navigation = () => {
   const [alpha, setAlpha] = useState();

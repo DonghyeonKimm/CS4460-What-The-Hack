@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View , Image } from 'react-native'
+import { StyleSheet, Text, View , Image, TouchableOpacity } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import {Gyroscope, Barometer, Magnetometer, Accelerometer, DeviceMotion} from 'expo-sensors'
-const PlaceholderImage = require('/Users/donghyeonkim/Documents/GitHub/CS4460-What-The-Hack/assets/images/nightsky.jpeg');
+import { useNavigation } from '@react-navigation/native';
+const PlaceholderImage = require('C:/Users/donye/Downloads/MUC/CS4460-What-The-Hack/assets/images/nightsky.jpeg');
 
 const SensorTest = ({route}) => {
     //ACCELEROMETER
@@ -75,6 +76,11 @@ const SensorTest = ({route}) => {
         // }   
     })
 
+    const navigation = useNavigation();
+
+    const home = () => {
+        navigation.navigate("Welcome");
+    }
     
 
 
@@ -112,6 +118,10 @@ const SensorTest = ({route}) => {
                 <Text>Beta "Up-Down": {beta}</Text>
                 <Text>Gamma "Left-Right": {gamma}</Text>
             </View>
+            <TouchableOpacity style={styles.startButton} onPress={home}>
+                <Text>Back</Text>
+            </TouchableOpacity>
+
         </View>
     )
 }
@@ -126,7 +136,7 @@ const styles = StyleSheet.create({
     },
     imageContainer: {
         position: 'absolute',
-      top: 0,
+        top: 0,
         flex: 1,
         paddingTop: 0,
     },
@@ -145,5 +155,16 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         alignItems: 'center',
         marginBottom: 60,
-    }
+    },
+    startButton: {
+        backgroundColor: 'white',
+        width: 280,
+        height: 45,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 14,
+        alignSelf: 'center'
+    },
 })
