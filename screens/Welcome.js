@@ -23,19 +23,22 @@ const Welcome = () => {
 
     return (
         <View style={styles.container}>
-        <View style={styles.imageContainer}>
-            <Image source={PlaceholderImage} style={styles.image} />
-        </View>
-        <View style={styles.footerContainer}>
-            <TouchableOpacity style={styles.startButton} onPress={map}>
-                <MaterialCommunityIcons name="star-shooting-outline" size={24} color="black" />
-                <Text>Find North Star</Text>
-            </TouchableOpacity>
-            {/* <TouchableOpacity style={styles.loginButton} onPress={testFeature}>
-                <Text style={styles.login}>Test Feature - Navigation</Text>
-            </TouchableOpacity> */}
-        </View>
-        <StatusBar style="auto" />
+            <View style={styles.imageContainer}>
+                <Image source={PlaceholderImage} style={styles.image} />
+            </View>
+            <View>
+              <Text style={styles.name}>North Star Navigation</Text> 
+            </View>
+            <View style={styles.footerContainer}>
+                <TouchableOpacity style={styles.startButton} onPress={map}>
+                    <MaterialCommunityIcons name="star-shooting-outline" size={24} color="black" />
+                    <Text>Find North Star</Text>
+                </TouchableOpacity>
+                {/* <TouchableOpacity style={styles.loginButton} onPress={testFeature}>
+                    <Text style={styles.login}>Test Feature - Navigation</Text>
+                </TouchableOpacity> */}
+            </View>
+            <StatusBar style="auto" />
         </View>
     )
 }
@@ -47,6 +50,12 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#25292e',
         alignItems: 'center',
+    },
+    name: {
+        color: 'white',
+        marginBottom: '70%',
+        fontSize: 36,
+        fontWeight: 'bold',
     },
     imageContainer: {
         flex: 1,
