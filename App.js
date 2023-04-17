@@ -4,10 +4,9 @@ import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack';
 import Welcome from './screens/Welcome';
 import SensorTest from './screens/SensorTest';
-import Test from './screens/Test';
 import NorthStar from './screens/NorthStar';
 import Navigation from './screens/Navigation';
-
+import map from './screens/map';
 const Stack = createStackNavigator();
 
 const MyTheme = {
@@ -27,6 +26,7 @@ export default function App() {
         }
       }>
         <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="map" component={map} />
         <Stack.Screen name="Navigation" component={Navigation} />
         <Stack.Screen name="NorthStar" component={NorthStar} />
         <Stack.Screen name="SensorTest" component={SensorTest} />
