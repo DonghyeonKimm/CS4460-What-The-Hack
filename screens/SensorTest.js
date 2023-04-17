@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View , Image } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import {Gyroscope, Barometer, Magnetometer, Accelerometer, DeviceMotion} from 'expo-sensors'
+const PlaceholderImage = require('/Users/donghyeonkim/Documents/GitHub/CS4460-What-The-Hack/assets/images/nightsky.jpeg');
 
 const SensorTest = ({route}) => {
     //ACCELEROMETER
@@ -79,6 +80,9 @@ const SensorTest = ({route}) => {
 
     return (
         <View style={styles.dataContainer}>
+            <View style={styles.imageContainer}>
+            <Image source={PlaceholderImage} style={styles.image} />
+            </View>
             <View style={styles.data}>
                 <Text>Accelerometer</Text>
                 <Text>X: {x}</Text>
@@ -115,6 +119,23 @@ const SensorTest = ({route}) => {
 export default SensorTest
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#25292e',
+        alignItems: 'center',
+    },
+    imageContainer: {
+        position: 'absolute',
+      top: 0,
+        flex: 1,
+        paddingTop: 0,
+    },
+    image: {
+        top: 50,
+        width: 400,
+        height: 900,
+        borderRadius: 18,
+    },
     dataContainer: {
         marginTop: 125,
     },
