@@ -120,11 +120,11 @@ const NorthStar = () => {
 
   return (
     <View style={styles.container}>
-        <View style={styles.data}>
+        {/* <View style={styles.data}>
             <Text style={styles.dataText}>Alpha "North": {alpha}</Text>
             <Text style={styles.dataText}>Beta "Up-Down": {beta}</Text>
             <Text style={styles.dataText}>Gamma "Left-Right": {gamma}</Text>
-        </View>
+        </View> */}
         <View style={styles.inside}>
             <AntDesign name="caretup" style={navigateUp() ? styles.iconA : styles.iconD}/>
             <View style={styles.block}>

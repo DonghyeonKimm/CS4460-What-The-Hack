@@ -8,6 +8,7 @@ import { TouchableOpacity } from 'react-native';
 import * as Location from 'expo-location';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import NorthStar from './NorthStar';
+import { TextInput } from 'react-native-gesture-handler';
 
 export default function App() {
     const navigation = useNavigation();
@@ -43,7 +44,6 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-        
       <MapView style = {styles.map}
         initialRegion={{
           latitude: 33.7756,
@@ -75,11 +75,10 @@ export default function App() {
     center ={pin}
     radius = {50}
     />
-  </MapView>  
+  </MapView>
   <TouchableOpacity style={styles.startButton} onPress={northStar}>
-                <MaterialCommunityIcons name="star-shooting-outline" size={24} color="black" />
-                <Text>Find North Star</Text>
-    </TouchableOpacity> 
+      <Text>Find North Star</Text>
+  </TouchableOpacity>  
   </View>
   );
 }
@@ -87,7 +86,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display: 'flex',
+    flexDirection: 'column'
   },
   map: {
     width: '100%',
@@ -108,5 +108,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 0.25,
     color: 'white',
+  },
+  startButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 70,
+    position: 'absolute',
+    top: '85%',
+    right: '35%',
+    height: 60,
+    width: 120,
+    backgroundColor: 'white',
+    opacity: 0.8,
+    borderRadius: 10
   },
 });
