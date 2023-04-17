@@ -14,12 +14,12 @@ const Navigation = () => {
   const [value, setValue] = useState(null);
   const [value2, setValue2] = useState(null);
   const [items, setItems] = useState([
-    {label: 'culc', value: 'culc'},
-    {label: 'crc', value: 'crc'},
-    {label: 'scheller', value: 'scheller'},
-    {label: 'coc', value: 'coc'},
-    {label: 'bobbydodd', value: 'bobbyDodd'},
-    {label: 'mccamish', value: 'mccamish'},
+    {label: 'CULC', value: 'culc'},
+    {label: 'CRC', value: 'crc'},
+    {label: 'Scheller', value: 'scheller'},
+    {label: 'CoC', value: 'coc'},
+    {label: 'Bobby Dodd Stadium', value: 'bobbyDodd'},
+    {label: 'McCamish Pavilion', value: 'mccamish'},
   ]);
   const [started, setStarted] = useState(false);
   const [direction, setDirection] = useState();
